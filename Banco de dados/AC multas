@@ -1,0 +1,88 @@
+create database carrosMultas
+use carrosMultas
+ 
+create table carros(
+carroid int primary key identity(1,1),
+placa char (7) not null,
+modelo varchar (50) not null,
+ano int not null
+)
+ 
+create table motoristas(
+motoristaId int primary key identity(1,1),
+nome varchar (50) not null,
+cnh int not null,
+pontosCnh int not null
+)
+ 
+create table multas(
+multaID int primary key identity(1,1),
+carrosId int not null,
+dataMulta date not null,
+pontos int not null,
+constraint fk_multas_carros foreign key (carrosId)
+references carros(carroid)
+)
+ 
+create table prontuarios(
+prontuarioId int primary key identity(1,1),
+motoristasId int not null,
+multasId int not null,
+dataAssociacao datetime not null,
+constraint fk_prontuarios_motoristas foreign key (motoristasId) references motoristas(motoristaId),
+constraint fk_prontuarios_multas foreign key (multasId) references multas(multaId)
+)
+ 
+create procedure adicionarCarro
+@placa char(7),
+@modelo varchar(50),
+@ano int
+as
+insert into carros (placa,modelo,ano)
+values (@placa,@modelo,@ano)
+
+create procedure adicionarMotorista
+@nome varchar(50),
+@cnh int,
+@pontosCnh int
+as 
+insert into motoristas(nome, cnh, pontosCnh)
+values (@nome, @cnh, @pontosCnh)
+ 
+create procedure adicionarMultas
+@carrosId int,
+@dataMulta date,
+@pontos int
+as
+insert into multas(carrosId,dataMulta,pontos)
+values (@carrosId, @dataMulta, @pontos)
+ 
+create Trigger Prontuariotg
+on multas for insert
+as 
+begin
+insert into prontuarios(motoristasId,multasId, dataAssociacao)
+select carrosId, multaID, getdate() from inserted
+end
+
+create Trigger multaProntuario
+on multas for insert
+as
+begin
+declare
+@carrosId int,
+@pontos int 
+select @carrosId=carrosId, @pontos=pontos from inserted
+update motoristas set pontosCnh=pontosCnh+@pontos
+where motoristaId=@carrosId
+end
+
+exec adicionarCarro '123abcd','Toyota Corolla', 2023
+exec adicionarMotorista 'Jose', 123456789, 0
+exec adicionarMultas 1, '04-27-2025', 1 
+exec adicionarMultas 1, '05-04-2025', 3
+
+select * from carros
+select * from motoristas 
+select * from multas
+select * from prontuarios
