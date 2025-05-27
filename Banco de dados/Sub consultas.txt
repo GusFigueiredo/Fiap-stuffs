@@ -1,0 +1,49 @@
+create database aula
+use aula
+
+create table clientes (
+id_cliente int primary key,
+nome varchar(50),
+cidade varchar(50)
+)
+
+create table pedidos (
+id_pedido int primary key,
+id_cliente int,
+valor decimal(10,2),
+data_pedido date,
+foreign key (id_cliente) references clientes (id_cliente)
+)
+
+insert into clientes (id_cliente, nome, cidade) values
+(1, 'Joao', 'SP'),
+(2, 'Marcelo', 'RJ'),
+(3, 'Pedro', 'AM')
+
+insert into pedidos (id_pedido, id_cliente, valor, data_pedido) values
+(5, 2, 250.00, '2025-05-06'),
+(1, 1, 100.00, '2025-05-01'),
+(2, 2, 150.00, '2025-05-02'),
+(3, 3, 200.00, '2025-05-03'),
+(4, 1, 50.00, '2025-05-04')
+
+drop table pedidos
+
+select * from pedidos
+
+-- Exemplo IN
+select id_cliente,nome from clientes
+	where id_cliente in (select id_cliente from pedidos where valor > 100)
+
+-- Exemplo exists
+select nome from clientes c 
+	where exists (select 1 from pedidos p where p.id_cliente = c.id_cliente 
+					and p.valor > 100)
+-- Select 1: mostra só uma vez o pedido, se colocar o * vai mostrar todos
+
+
+
+select nome, (select max(valor) 
+		      from pedidos
+			  where id_cliente = c.id_cliente) as 'Maior valor de venda'
+from clientes c
