@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.semaforo {
+  width: 100px;
+  padding: 15px;
+  background: black;
+  border-radius: 5px;
+  margin: 20px auto;
+}
+
+.luz {
+  width: 60px;
+  height: 60px;
+  margin: 10px auto;
+  border-radius: 50%;
+  background: gray; 
+}
+
+.luzVermelha { background: red; }
+.luzAmarelo { background: yellow; }
+.luzVerde { background: green; }
