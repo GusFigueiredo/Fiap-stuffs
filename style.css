@@ -1,0 +1,317 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', sans-serif;
+}
+
+h1 {
+    color: #183959;
+    font-size: 2.8rem;
+}
+
+p {
+    color: #183959;
+    font-size: 1.2rem;
+}
+
+/*Header*/
+
+header {
+    background-color: white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 70px; 
+}
+
+.navImg {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #183959;
+}
+
+.navImg a{
+    padding-top: 8px;
+}
+
+.navLinks {
+    display: flex;
+    gap: 30px;
+}
+
+.navLinks a {
+    font-size: 1.2rem;
+    color: #183959;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.navLinks a:hover {
+    text-decoration: underline;
+}
+
+body {
+    padding-top: 70px;
+}
+
+
+
+/* sessoes */
+
+section {
+    background-color: #FFFFFF;
+    margin-top: 0;
+    min-height: 100vh;
+    max-height: 100vh;
+}
+/* hero */
+
+.hero {
+  display: flex;
+  height: 80vh; 
+  width: 100%;
+  overflow: hidden;
+}
+
+.heroText {
+  flex: 1; 
+  background-color: #183959;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5%;
+}
+
+.heroText h1 {
+    color: white;
+}
+
+.heroText p {
+    color: white;
+}
+
+.heroImg {
+  flex: 1; 
+  overflow: hidden;
+}
+
+.heroImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+
+/*solucoes */
+
+#solucoes {
+    margin-top: 2rem;
+}
+
+.hpS {
+    margin-left: 4rem;
+}
+
+.cardSection {
+  display: flex;
+  justify-content: center; 
+  align-items: flex-start; 
+  flex-wrap: wrap; 
+  gap: 30px; 
+  padding: 15px;
+}
+
+.cardSolucao {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    background-color: #F4F4F4;
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+  color: #183959;
+  min-height: 379px;
+  width: 17rem;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+
+.cardSolucao h2{
+    min-height: 50px;
+     font-size: 1.4rem;
+}
+.cardSolucao p{
+     font-size: 1rem;
+}
+
+.cardSolucao:hover {
+  transform: translateY(-5px);
+}
+
+.cardIcon {
+  width: 6rem;
+  margin-bottom: 15px;
+}
+
+
+
+
+/* tecnoloia */
+#tecnologia {
+    background: #265782;
+background: linear-gradient(90deg,rgba(38, 87, 130, 1) 0%, rgba(121, 168, 191, 1) 66%, rgba(209, 252, 255, 1) 100%);
+  display: flex;
+  align-items: center;       
+  justify-content: space-between; 
+  padding: 20px;
+  font-family: 'Outfit', sans-serif;
+  gap: 40px; 
+}
+
+.divTecEsq {
+    margin-left: 2rem;
+  flex: 1; 
+  color: #A0DBCD;
+}
+
+.divTecEsq h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #A0DBCD;
+  margin-bottom: 20px;
+}
+
+.divTecEsq h2 {
+    font-weight: 400;
+  font-size: 1.4rem;
+  color: #A0DBCD;
+}
+
+
+.divTecDir {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.divTecDir img {
+  width: 25rem;
+  height: auto;
+}
+
+/* beneficios */
+
+#beneficio {
+    text-align: center;
+}
+
+#beneficio h1{
+    padding: 1.5rem;
+}
+
+.cardsBene {
+  display: flex;
+  justify-content: center; 
+  align-items: flex-start; 
+  flex-wrap: wrap; 
+  gap: 30px; 
+}
+
+.cardBeneficio {
+    height: 180px;
+flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+  color: #183959;
+  width: 14.5rem;
+  padding: 10px;
+  border-radius: 15px;
+
+}
+
+.cardBeneficio img {
+    width: 4.5rem;
+}
+
+.cardBeneficio p {
+    font-size: 1rem;
+}
+
+.btnBeneficio {
+    margin-bottom: 2rem;
+    height: 4rem;
+    width: 13rem;
+    font-size: 1.3rem;
+    background-color:#183959;
+    border: 0px;
+    border-radius: 10px;
+    color: white;
+    transition: 0.3s;
+}
+
+.btnBeneficio:hover {
+    cursor: pointer; 
+    color: #A0DBCD;
+    transform: scale(1.05);
+}
+
+
+/* footer */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #183959;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+footer h2 {
+    font-weight: 500;
+    color: white;
+    font-size: 1.8rem;
+}
+
+footer img {
+    width: 174px;
+}
+
+footer dd{
+    color: white;
+    text-decoration: none;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer i {
+    padding-right: 10px;
+}
